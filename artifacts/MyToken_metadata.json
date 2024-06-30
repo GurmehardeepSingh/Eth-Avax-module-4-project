@@ -6,6 +6,11 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -53,17 +58,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_address",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "_number",
+						"name": "_newMax",
 						"type": "uint256"
 					}
 				],
-				"name": "Withdraw",
+				"name": "changeMaxTransaction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -82,6 +82,55 @@
 					}
 				],
 				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_number",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -115,11 +164,11 @@
 	},
 	"sources": {
 		"project.sol": {
-			"keccak256": "0x6db9d5414e381f291bdffd609d491d64c51921bb662c4130a0fd5f52d8b78b2a",
+			"keccak256": "0xaa785b81316d4dfef824e46156e81649dc0a0ee327219342c9565169c9db4f82",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fbe6deb72af5f0109711876930e9ba48f7aaadfb884e2e64ecd23866cfcbfced",
-				"dweb:/ipfs/QmSZWjaL4xUF38ZksbgagTzDhLDLRSaqckaWLk6XiJbLsc"
+				"bzz-raw://643b597f548141e3a374532b368df309b6c28014f521b8d24ae80fb646315642",
+				"dweb:/ipfs/QmRazFjzZej3eygRMbiZKpVLpYxBakB81oTaa5ryPXMM96"
 			]
 		}
 	},
