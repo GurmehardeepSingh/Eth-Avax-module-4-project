@@ -181,6 +181,37 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "Redeem",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "addItemToShop",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "owner",
 						"type": "address"
@@ -275,18 +306,43 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_address",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_number",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
 				"name": "deposit",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getShopItems",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct GDSToken.ShopItem[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -310,6 +366,30 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "shopItems",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -571,11 +651,11 @@
 			]
 		},
 		"project.sol": {
-			"keccak256": "0x779a03ce50e4512a6bab40e364678673af62bc4c9f6c245a9f035b7f490cab99",
+			"keccak256": "0x88ed460e24780be3d3dc26debea69cb24290f7da8cc3ecb9a6ffc33351d0e7a7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cf58b568c8b3b35370012684147420e3c9878056cdc55a71dfb4638085f7a61a",
-				"dweb:/ipfs/QmRDS2pEJeK9hzCUtZL35QrgC14afCPbBd8u27Tm9AjqBs"
+				"bzz-raw://76d2e5c0bdccdccc72c194c72d739dba71a6e76b195dbb5bc9b117650481250a",
+				"dweb:/ipfs/QmNr8efndrDGqNLySuKuMHwrFi92jSiibCDN9YH8oaPYax"
 			]
 		}
 	},
