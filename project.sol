@@ -1,53 +1,46 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.26;
+pragma solidity ^0.8.0;
 
-contract MyToken {
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-    uint public Total_Supply = 0;
+contract GDSToken is ERC20 {
     uint public Max_transaction = 800;
-    address public owner;
+    address private _owner;
 
-    mapping(address => uint) public Balance;
+    mapping(address => uint256) public Balance;
 
-    constructor() {
-        owner = msg.sender; // Contract deployer is the owner
+    constructor() ERC20("GDS Token", "GDS") {
+        _owner = msg.sender;
+        _mint(msg.sender, 10 * 10 ** decimals()); // Mint 10 tokens initially to the contract deployer
     }
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only contract owner can call this function");
-        _;
+    modifier onlyOwner{
+      require(msg.sender == _owner,"Only owner can use this");
+      _;
     }
-
-    function deposit(address _address, uint _number) public {
+    
+    function deposit(address _address, uint256 _number) public onlyOwner {
         require(_number > 0, "Amount must be greater than 0");
-        Total_Supply += _number;
+        _mint(_address, _number);
         Balance[_address] += _number;
     }
 
-    function withdraw(address _address, uint _number) public {
+    function withdraw(address _address, uint256 _number) public {
         require(Balance[_address] >= _number, "Insufficient balance");
 
         if (_number > Max_transaction) {
             revert("Transaction amount exceeds maximum allowed");
         }
 
-        Total_Supply -= _number;
+        _burn(_address, _number);
         Balance[_address] -= _number;
-
-        assert(Total_Supply >= 0);
     }
 
-    function transfer(address _to, uint _amount) public {
-        require(_amount > 0, "Amount must be greater than 0");
-        require(Balance[msg.sender] >= _amount, "Insufficient balance");
 
-        Balance[msg.sender] -= _amount;
-        Balance[_to] += _amount;
-    }
-
-    function changeMaxTransaction(uint _newMax) public onlyOwner {
+    function changeMaxTransaction(uint256 _newMax) public onlyOwner {
         Max_transaction = _newMax;
     }
 
-    
+    function owner() public view returns (address) {
+        return _owner;
+    }
 }
